@@ -2,16 +2,31 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 
-// 1. Definimos a variável CSS aqui
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ['400', '600', '700', '800'],
-  variable: "--font-nunito", // Importante: Mesmo nome usado no globals.css
+  variable: "--font-nunito", 
 });
 
+// IMPLEMENTAÇÃO DE SEO E METADADOS
 export const metadata: Metadata = {
-  title: "Encanto Kids | Gestão Escolar",
-  description: "Portal administrativo e agenda digital.",
+  title: {
+    template: '%s | Encanto Kids',
+    default: 'Encanto Kids | Hotelzinho e Espaço Infantil',
+  },
+  description: "Sistema de gestão escolar e agenda digital para pais. Acompanhe a rotina do seu filho com segurança.",
+  keywords: ["escola infantil", "hotelzinho", "patos pb", "educação infantil", "agenda digital", "gestão escolar"],
+  authors: [{ name: "João Vítor Macêdo" }],
+  openGraph: {
+    title: 'Encanto Kids',
+    description: 'Cuidado e diversão para o seu pequeno.',
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'Encanto Kids',
+  },
+  icons: {
+    icon: '/logo.png', 
+  },
 };
 
 export default function RootLayout({
@@ -21,8 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      {/* 2. Injetamos a variável no body */}
-      <body className={`${nunito.variable} font-sans antialiased`}>
+      <body className={`${nunito.variable} font-sans antialiased bg-page`}>
         {children}
       </body>
     </html>
