@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* Aqui definimos o tema diretamente no CSS.
+  O Tailwind v4 transforma essas variáveis automaticamente em classes.
+  Ex: --color-primary vira bg-primary, text-primary, border-primary...
+*/
+@theme {
+  /* Definição da Fonte (conectada ao layout.tsx) */
+  --font-nunito: var(--font-nunito);
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+
+  /* Paleta de Cores do Encanto Kids */
+  --color-primary: #A55EEA;    /* Roxo Cabeçalho */
+  --color-secondary: #4BCFFA;  /* Azul Turquesa */
+  --color-accent: #FFA502;     /* Laranja Botões */
+  
+  /* Cores Funcionais */
+  --color-page: #F3E5F5;       /* Fundo Lilás Claro (antigo 'background') */
+  --color-card-border: #E0B0FF;
+  --color-success: #2ECC71;
+  --color-danger: #FF4757;
+  
+  /* Sombras Suaves (Opcional, para ficar igual ao Figma) */
+  --shadow-soft: 0 4px 20px -2px rgba(165, 94, 234, 0.15);
+}
+
+/* Reset básico para garantir altura total */
+html, body {
+  height: 100%;
+  background-color: var(--color-page);
+}
